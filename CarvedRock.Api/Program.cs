@@ -89,8 +89,8 @@ using (var scope = app.Services.CreateScope())
 app.UseMiddleware<CriticalExceptionMiddleware>();
 app.UseProblemDetails();
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
@@ -98,7 +98,7 @@ if (app.Environment.IsDevelopment())
         options.OAuthAppName("CarvedRock API");
         options.OAuthUsePkce();
     });
-}
+//}
 
 app.MapFallback(() => Results.Redirect("/swagger"));
 app.UseAuthentication();
